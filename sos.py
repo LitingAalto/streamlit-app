@@ -135,7 +135,7 @@ if st.button('Calculate SoS'):
         fig = px.line(df, x="date", y=list(kw_dict.values()), title='Share of Search Over Time')
         #fig.show()
         st.plotly_chart(fig, use_container_width=True)
-    if st.button('Save keywords for reporting and modeling'):
+    #if st.button('Save keywords for reporting and modeling'):
         with open('report.txt','a') as f:
             f.write(str(kw_dict)+'\n')
     with col2:
