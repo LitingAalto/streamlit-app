@@ -127,7 +127,7 @@ def sos_calculator(search,duration,group, smoothing):
     df.columns=df.columns.map(kw_dict)
     df = df.groupby(lambda x:x, axis=1).sum().reset_index()
     return df
-if st.button('Calculate SoS'):
+if st.button('Show calculated trends'):
     
     df = sos_calculator(search,duration,group, smoothing)
     col1, col2 = st.columns(2)
@@ -146,7 +146,7 @@ if st.button('Calculate SoS'):
         #fig1.show()  
         st.plotly_chart(fig1, use_container_width=True)
     
-with st.expander('Add Dates to compare change of SoS'):
+with st.expander('Add Dates to compare change of Google Trends'):
     start1 = st.date_input(
     "start date of the added comparison",
     datetime.date(2020, 7, 6))
