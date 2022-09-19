@@ -155,7 +155,7 @@ if st.button('Add keywords for analysis'):
 
 with open('report1.txt') as f:
     print(f)
-   st.download_button('Download keywords in text file', f)  # Defaults to 'text/plain'
+    st.download_button('Download keywords in text file', f) 
 
 with st.expander('Add Dates to compare change of Google Trends'):
     start1 = st.date_input(
