@@ -147,12 +147,14 @@ if st.button('Show calculated trends'):
         st.plotly_chart(fig1, use_container_width=True)
         
 if st.button('Add keywords for analysis'):
-    with open('report.txt','a') as f:
+    with open('report1.txt','a') as f:
         f.write(str(kw_dict)+'\n')
+        print(f)
 # st.download_button('Download CSV', text_contents, 'text/csv')
-# st.download_button('Download CSV', text_contents)  # Defaults to 'text/plain'
+# st.download_button('Download keywords in text file', text_contents)  # Defaults to 'text/plain'
 
-with open('report.txt') as f:
+with open('report1.txt') as f:
+    print(f)
    st.download_button('Download keywords in text file', f)  # Defaults to 'text/plain'
 
 with st.expander('Add Dates to compare change of Google Trends'):
