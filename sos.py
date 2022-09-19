@@ -145,7 +145,16 @@ if st.button('Show calculated trends'):
         fig1 = px.pie(df1, values='share', names='names', title='Share of Search in %',hole=.65)
         #fig1.show()  
         st.plotly_chart(fig1, use_container_width=True)
-    
+        
+if st.button('Add keywords for analysis'):
+    with open('report.txt','a') as f:
+        f.write(str(kw_dict)+'\n')
+# st.download_button('Download CSV', text_contents, 'text/csv')
+# st.download_button('Download CSV', text_contents)  # Defaults to 'text/plain'
+
+with open('report.txt') as f:
+   st.download_button('Download keywords in text file', f)  # Defaults to 'text/plain'
+
 with st.expander('Add Dates to compare change of Google Trends'):
     start1 = st.date_input(
     "start date of the added comparison",
