@@ -8,7 +8,7 @@ warnings.filterwarnings("ignore")
 pytrend = TrendReq(hl='en-US', tz=120, timeout=(5,10))
 
 st.set_page_config(layout="wide")
-st.markdown("<h1 style='text-align: center; color: black;'>Share Of Search</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center; color: black;'>Google Trends</h1>", unsafe_allow_html=True)
 st.markdown("<h3 style='text-align: center; color: darkgrey;'>Automates search and save the needed keywords for modelling</h2>", unsafe_allow_html=True)
 
 col1, col2, col3 = st.columns(3)
@@ -38,7 +38,7 @@ with col3:
         smoothing = True
 
 
-st.markdown("<h5 style='text-align: left; color: black;'>\nInput here keywords and their afflixes for SoS comparison</h1>", unsafe_allow_html=True)
+st.markdown("<h5 style='text-align: left; color: black;'>\nInput here keywords and their afflixes for Google Trends comparison</h1>", unsafe_allow_html=True)
 
 col1, col2, col3, col4, col5 = st.columns(5)
 kw_dict = {}
