@@ -7,9 +7,7 @@ warnings.filterwarnings("ignore")
 
 from pytrends.request import TrendReq
 
-pytrend = TrendReq(hl = 'en-US', tz = 360, timeout = 10, proxies = {
-   'https': 'https://34.203.233.13:80'
-})
+pytrends = TrendReq(hl = 'en-US', tz = 360, timeout = 10, proxies = ['https://34.203.233.13:80', ])
 st.set_page_config(layout="wide")
 st.markdown("<h1 style='text-align: center; color: black;'>Google Trends</h1>", unsafe_allow_html=True)
 st.markdown("<h3 style='text-align: center; color: darkgrey;'>Automates search and save the needed keywords for modelling</h2>", unsafe_allow_html=True)
