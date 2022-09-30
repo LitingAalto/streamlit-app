@@ -90,6 +90,7 @@ with st.expander("Input more Keywords"):
 kw_dict = {k: v for k, v in kw_dict.items() if v!=''}
 search = list(kw_dict.keys())
 
+@st.cache
 def sos_calculator(search,duration,group, smoothing):
     if len(search)>5:
         pytrend.build_payload(search[:5], cat=0, timeframe=duration, geo='FI', gprop='')
