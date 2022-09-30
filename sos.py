@@ -5,7 +5,7 @@ from pytrends.request import TrendReq
 import plotly.express as px
 import warnings
 warnings.filterwarnings("ignore") 
-pytrend = TrendReq(hl='en-US', tz=120, timeout=(5,10))
+pytrend = TrendReq(hl='en-US', tz=120, timeout=(5,10),proxies=['https://34.203.233.13:80',], retries=2, backoff_factor=0.1, requests_args={'verify':False})
 
 st.set_page_config(layout="wide")
 st.markdown("<h1 style='text-align: center; color: black;'>Google Trends</h1>", unsafe_allow_html=True)
