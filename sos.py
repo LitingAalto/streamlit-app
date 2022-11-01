@@ -34,7 +34,6 @@ class TrendReq(UTrendReq):
 st.set_page_config(layout="wide")
 st.markdown("<h1 style='text-align: center; color: black;'>Google Trends</h1>", unsafe_allow_html=True)
 st.markdown("<h3 style='text-align: center; color: darkgrey;'>Automates search and save the needed keywords for modelling</h2>", unsafe_allow_html=True)
-keyw = pd.read_excel('keywordlist.xlsx').drop('Unnamed: 0',1)
 
 start = st.date_input(
 "start date of comparison",
@@ -228,34 +227,3 @@ if st.button('Calculate Google trends'):
     st.download_button(label='📥 Download trends data from the selected keywords',
                                     data=df_xlsx ,
                                     file_name= f'{file}.xlsx')
-# if st.button('♞ Add current keywords to BI reports! Be sure you add the right one, once it is added, it will be in reporting'):
-#     def keyword_excel(kw_dict, cat):
-#         df = pd.DataFrame(kw_dict.items(), columns=['keywords','afflix'])
-#         df['category'] = cat
-#         df['flag'] = 0
-#         return df
-#     if category not in keyw.category.unique():
-#         keyw = keyw.append(keyword_excel(kw_dict, category))
-#         keyw.to_excel('keywordlist.xlsx')
-#     else:
-#         st.markdown("<h5 style='text-align: left; color: black;'>\nCategory already exists, input a new one and add again!</h5>", unsafe_allow_html=True)
-def to_excel2(df):
-    output = BytesIO()
-    writer = pd.ExcelWriter(output, engine='xlsxwriter')
-    keyw.to_excel(writer, index=False, sheet_name='keywords')
-    writer.save()
-    processed_data = output.getvalue()
-    return processed_data
-df_xlsx = to_excel2(keyw)
-st.download_button(label='Download keywords lists for BI report',
-                                data=df_xlsx ,
-                                file_name= 'keywordlist.xlsx')
-# rm_cat = st.text_input('Remove this category name from reporting list', value='Mobiililaajakaistaliittymät1')
-# if st.button('\26 When click this button the category will be removed from BI report! '):
-#     if rm_cat not in keyw.category.unique():
-#         st.markdown("<h5 style='text-align: left; color: black;'>\nCategory not found from reporting list!</h5>", unsafe_allow_html=True)
-#     else:
-#         keyw = keyw[keyw.category!=rm_cat]
-#         st.markdown("<h5 style='text-align: left; color: black;'>\nCategory removed.\n If you wish to download the updated keywordlist, please refresh the page.</h5>", unsafe_allow_html=True)
-#         keyw.to_excel('keywordlist.xlsx')
-
